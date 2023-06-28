@@ -6,14 +6,26 @@ import Availablemeals from './Components/Meals/Availablemeals';
 import Mealsitem from './Components/Meals/Mealsitem';
 import Cart from './Components/Cart/Cart';
 
+import  {Fragment,useState} from 'react';
+
 function App() {
+  const[cartIsShown,setCartIsShown]=useState(false);
+
+  const showcartHandler=()=>{
+    setCartIsShown(true);
+  }
+
+  const hidecartHandler=()=>{
+    setCartIsShown(false);
+  }
+
   return (
-     <div>
-      <Cart></Cart>
-      <Header></Header>
+     <Fragment>
+      {cartIsShown && <Cart onClose={hidecartHandler}/>}
+      <Header onShowcart={showcartHandler}/>
       <Mealsitem></Mealsitem>
       
-     </div>
+     </Fragment>
   );
 }
 
