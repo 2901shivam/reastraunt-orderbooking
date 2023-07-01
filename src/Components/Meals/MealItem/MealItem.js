@@ -9,8 +9,9 @@ const MealItem = (props) => {
     <div><h3>{props.item}</h3>
     <div className={classes.description}>{props.des}</div>
     <div className={classes.price}>{price}</div>
+    {console.log(props)}
     </div>
-    <MealItemForm></MealItemForm>
+    <MealItemForm id={props.id} item={props}/>
    </li>
   )
 }

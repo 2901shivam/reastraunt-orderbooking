@@ -7,6 +7,7 @@ import Mealsitem from './Components/Meals/Mealsitem';
 import Cart from './Components/Cart/Cart';
 
 import  {Fragment,useState} from 'react';
+import CartProvider from './Store/CartProvider';
 
 function App() {
   const[cartIsShown,setCartIsShown]=useState(false);
@@ -20,12 +21,12 @@ function App() {
   }
 
   return (
-     <Fragment>
+     <CartProvider>
       {cartIsShown && <Cart onClose={hidecartHandler}/>}
       <Header onShowcart={showcartHandler}/>
       <Mealsitem></Mealsitem>
       
-     </Fragment>
+     </CartProvider>
   );
 }
 
