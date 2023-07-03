@@ -5,25 +5,25 @@ import MealItem from './MealItem/MealItem';
 
 const meals=[{
     id:"m1",
-    item:"sushi",
+    name:"sushi",
     des:"finest fish and veggies",
     price:22.99
 
 },
 {   id:"m2",
-    item:"schnitzed",
+    name:"schnitzed",
     des:"A german speciality",
     price:16.50 
 },
 {   id:"m3",
-    item:"Barbeque Burgers",
+    name:"Barbeque Burgers",
     des:"American,raw,meaty",
     price:12.99
 }
 ]
 
 const Availablemeals = (props) => {
- const mealsList=meals.map((meal)=> <li><MealItem key={meal.id} item={meal.item} des={meal.des} price={meal.price}/></li>);
+ const mealsList=meals.map((meal)=> <li><MealItem key={meal.id} id={meal.id} name={meal.name} des={meal.des} price={meal.price}/></li>);
   return (
 
 
