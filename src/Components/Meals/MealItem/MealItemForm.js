@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from 'react'
 import Input from '../../UI/Input'
 import classes from './MealItemForm.module.css'
-import CartContext from '../../../Store/CartContext'
+import {CartContext} from '../../../Store/cart-context'
 
 const MealItemForm = (props) => {
   const amountInputRef=useRef();
@@ -14,14 +14,15 @@ const MealItemForm = (props) => {
     // console.log(event.target)
     // console.log("Click on me")
     const enteredAmount=amountInputRef.current.value;
-    const enteredAmountNumber=+enteredAmount;
+    const enteredAmountNumber= +enteredAmount;
 
-    if(enteredAmount.length===0 || enteredAmountNumber<1 || enteredAmountNumber>5){
+    if(enteredAmount.trim().length===0 || enteredAmountNumber<1 || enteredAmountNumber>5){
       setAmountIsValid(false)
       return ;
     }
     props.onAddToCart(enteredAmountNumber)
   }
+  
   return (
     
     <form className={classes.form} onSubmit={onChangeHandler}>
@@ -38,9 +39,7 @@ const MealItemForm = (props) => {
         }}/>
         <button >+ADD</button>
         {!amountIsValid &&<p>please enter a valid amount</p>}
-    </form>
-      
-
+    </form>   
   )
 }
 

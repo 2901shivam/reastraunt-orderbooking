@@ -19,6 +19,11 @@ const meals=[{
     name:"Barbeque Burgers",
     des:"American,raw,meaty",
     price:12.99
+},
+{   id:"m4",
+    name:"Biryani",
+    des:"tatsy Spicy Lucknawi Biryani..",
+    price:999.99
 }
 ]
 

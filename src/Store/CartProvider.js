@@ -1,27 +1,27 @@
 import React, { useReducer } from 'react'
-import CartContext from './CartContext'
+import {CartContext} from './cart-context'
 
 const defaultCartstate={
   items:[],
   totalAmount:0,
 }
-
+//
 const cartReducer=(state,action)=>{
   if(action.type==='ADD'){
     // const updateItems=state.items.concat(action.item);
     const updatedTotalAmount=state.totalAmount+action.item.price*action.item.amount;
-    const existingitem=state.items.findIndex(item=>item.id===action.item.id)
-    const existingCartitem=state.items[existingitem];
+    const existingCartItemIndex=state.items.findIndex(item=>item.id===action.item.id)
+    const existingCartitem=state.items[existingCartItemIndex]; //Biryani
     // let updateItem;
     let updateItems;
 
     if(existingCartitem){
       const updateItem={
-        ...existingitem,
+        ...existingCartitem,
         amount:existingCartitem.amount+action.item.amount
       }
       updateItems=[...state.items]
-      updateItem[existingitem]=updateItem
+      updateItems[existingCartItemIndex]=updateItem
     }
     else{
       // updateItem={...state.action};
